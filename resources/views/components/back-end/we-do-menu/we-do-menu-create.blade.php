@@ -1,6 +1,11 @@
 <!-- Summernote CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet" />
-
+<style>
+    .financemodal .modal-content {
+        width: 60% !important;
+        height: auto;
+    }
+</style>
 <!-- Modal HTML -->
 <div class="main-content" id="myModal">
   <div class="page-content">

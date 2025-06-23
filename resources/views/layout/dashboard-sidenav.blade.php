@@ -818,7 +818,7 @@
                     fill="#008AEE" />
                 </svg>
 
-                <span class="text">We Do Home Page</span>
+                <span class="text">What We Do Page</span>
                 <i class="arrow fa-solid fa-angle-down"></i>
               </a>
               <ul class="sub-menu">

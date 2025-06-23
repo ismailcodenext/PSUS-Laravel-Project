@@ -1,24 +1,18 @@
+<!-- Include Summernote CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet" />
+
 <style>
     #exampleModal .modal-dialog {
-        max-width: 40%;
+        max-width: 80%;
         height: auto;
     }
 </style>
 
-<!-- Action Button Edit Modal-2 Start -->
-<section
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<!-- Action Button Edit Modal Start -->
+<section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <button
-                type="button"
-                class="close-btn close"
-                data-bs-dismiss="modal"
-                aria-label="Close">
+            <button type="button" class="close-btn close" data-bs-dismiss="modal" aria-label="Close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <h2 class="heading">We Do Update</h2>
@@ -31,55 +25,75 @@
                                     <div class="item">
                                         <div class="col-md-12">
                                             <div class="d-flex align-items-center mt-3">
-                                                <img class="w-25 me-3" id="oldImg"
-                                                    src="{{ asset('images/default.jpg') }}" />
+                                                <img class="w-25 me-3" id="oldImg" src="{{ asset('images/default.jpg') }}" />
                                                 <div>
-                                                    <input oninput="updatePreview(this)" type="file" class="form-control"
-                                                        id="UpdateWeDoImage">
+                                                    <input oninput="updatePreview(this)" type="file" class="form-control" id="UpdateWeDoImage">
                                                     <input class="d-none" id="updateID">
                                                 </div>
                                             </div>
-                                                      
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
+                                <div class="form-row col-lg-6">
+                                    <label>Short Title *</label>
+                                    <input type="text" placeholder="Update Short Title *" id="UpdateWeDoShortTitle" />
+                                </div>
+                                <div class="form-row col-lg-6">
+                                    <label>Long Title *</label>
+                                    <input type="text" placeholder="Update Long Title *" id="UpdateWeDoLongTitle" />
+                                </div>
                                 <div class="col">
                                     <div class="form-row col-12">
-                                        <label for="">Update Email *</label>
-                                        <input type="text" placeholder="Update Email *" id="UpdateWeDoTitle" required />
+                                        <label>We Do Small Description *</label>
+                                        <textarea id="UpdateWeDoDescription"></textarea>
                                     </div>
                                     <div class="form-row col-12">
-                                        <label for="">Update We Do Description *</label>
-                                        <textarea name="address_details" id="UpdateWeDoDescription" cols="30" rows="10" placeholder="Update We Do Description"></textarea>
+                                        <label>We Do Content *</label>
+                                        <textarea id="UpdateWeDoContent"></textarea>
                                     </div>
                                     <div class="form-row col-12">
-                                        <label for="">Event Info Status *</label>
+                                        <label>We Do Status *</label>
                                         <select class="status-select" id="UpdateWeDoStatus">
-                                            <option disabled selected>Select brand status</option>
+                                            <option disabled selected>Select status</option>
                                             <option value="Active">Active</option>
                                             <option value="InActive">Inactive</option>
                                         </select>
-                                        <input class="d-none" id="updateID">
                                     </div>
                                 </div>
                             </div>
-                            <div class="actions">
-                                <button onclick="Update()" class="btn-save">Submit</button>
-                            </div>
 
+                            <div class="actions">
+                                <button onclick="Update()" class="btn-save" type="button">Submit</button>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    async function updatePreview(input, imageUrl) {
-        const oldImg = document.getElementById('oldImg');
+<!-- Include jQuery, Axios, and Summernote JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
 
+<script>
+    $(document).ready(function () {
+        setTimeout(() => {
+            $('#UpdateWeDoContent').summernote({
+                placeholder: 'Enter We Do Content *',
+                height: 300
+            });
+         
+        }, 300);
+    });
+
+    function updatePreview(input, imageUrl = null) {
+        const oldImg = document.getElementById('oldImg');
         if (input.files && input.files[0]) {
             oldImg.src = window.URL.createObjectURL(input.files[0]);
         } else if (imageUrl) {
@@ -91,78 +105,66 @@
 
     async function FillUpUpdateForm(id) {
         try {
-            // Set the brand id in the hidden input
             document.getElementById('updateID').value = id;
             showLoader();
-
-            // Fetch the brand data by ID
-            let res = await axios.post("/api/we-do-by-id", {
-                id: id.toString()
-            }, HeaderToken());
+            let res = await axios.post("/api/we-do-page-by-id", { id: id }, HeaderToken());
             hideLoader();
 
-            // Populate the form with the fetched data
             let data = res.data.rows;
-            document.getElementById('UpdateWeDoTitle').value = data.title;
-            document.getElementById('UpdateWeDoDescription').value = data.discription;
+            document.getElementById('UpdateWeDoShortTitle').value = data.short_title;
+            document.getElementById('UpdateWeDoLongTitle').value = data.long_title;
+            document.getElementById('UpdateWeDoDescription').value = data.short_description;
+            $('#UpdateWeDoContent').summernote('code', data.content);
             document.getElementById('UpdateWeDoStatus').value = data.status;
-            updatePreview(document.getElementById('UpdateWeDoImage'), data.img_url);
-            openModal(document.getElementById('exampleModal'));
+            updatePreview(document.getElementById('UpdateWeDoImage'), '/' + data.img_url);
 
+            openModal(document.getElementById('exampleModal'));
         } catch (e) {
             unauthorized(e.response.status);
         }
     }
 
-
-    // Update Brand Script
     async function Update() {
         try {
-            let UpdateWeDoTitle = document.getElementById('UpdateWeDoTitle').value;
-            let UpdateWeDoDescription = document.getElementById('UpdateWeDoDescription').value;
-            let UpdateWeDoStatus = document.getElementById('UpdateWeDoStatus').value;
-            let UpdateWeDoImage = document.getElementById('UpdateWeDoImage').files[0];
-            let updateID = document.getElementById('updateID').value;
+            let id = document.getElementById('updateID').value;
+            let short_title = document.getElementById('UpdateWeDoShortTitle').value;
+            let long_title = document.getElementById('UpdateWeDoLongTitle').value;
+            let short_description = $('#UpdateWeDoDescription').summernote('code');
+            let content = $('#UpdateWeDoContent').summernote('code');
+            let status = document.getElementById('UpdateWeDoStatus').value;
+            let image = document.getElementById('UpdateWeDoImage').files[0];
 
-            // Validate required fields
-
-            // Prepare form data
             let formData = new FormData();
-            formData.append('id', updateID);
-            formData.append('title', UpdateWeDoTitle);
-            formData.append('discription', UpdateWeDoDescription);
-            formData.append('status', UpdateWeDoStatus);
+            formData.append('id', id);
+            formData.append('short_title', short_title);
+            formData.append('long_title', long_title);
+            formData.append('short_description', short_description);
+            formData.append('content', content);
+            formData.append('status', status);
+            if (image) formData.append('img', image);
 
-            // Append the image if it exists
-            if (UpdateWeDoImage) {
-                formData.append('img', UpdateWeDoImage);
-            }
-
-            // Set the request configuration with headers
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data',
-                    ...HeaderToken().headers // Add authorization headers
+                    ...HeaderToken().headers
                 }
             };
 
-            showLoader(); // Show loader when submitting
-
-            // Make the request to update the brand
-            let res = await axios.post("/api/we-do-update", formData, config);
-            hideLoader(); // Hide loader after request completion
+            showLoader();
+            let res = await axios.post("/api/we-do-page-update", formData, config);
+            hideLoader();
 
             if (res.data.status === "success") {
                 successToast(res.data.message);
-                const updatemodal1 = document.getElementById('exampleModal');
-                closeModal(updatemodal1);
-                await getList(); // Refresh the brand list
+                closeModal(document.getElementById('exampleModal'));
+                              closeModal(document.getElementById('exampleModal'));
+        setTimeout(() => location.reload(), 500);
+                await getList(); // Refresh list
             } else {
                 errorToast(res.data.message);
             }
-
         } catch (e) {
-            unauthorized(e.response.status); // Handle unauthorized or other errors
+            unauthorized(e.response.status);
         }
     }
 </script>

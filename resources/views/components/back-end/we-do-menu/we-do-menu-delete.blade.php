@@ -36,7 +36,7 @@
 
             // Make the request to delete the Brand
             let res = await axios.post(
-                "/api/delete-we-do", {
+                "/api/delete-we-do-page", {
                     id: id
                 }, // Pass ID in the payload
                 HeaderToken()
