@@ -86,11 +86,77 @@
         setTimeout(() => {
             $('#UpdateWeDoContent').summernote({
                 placeholder: 'Enter We Do Content *',
-                height: 300
+                height: 300,
+
+                popover: {
+                    image: [
+                        ['custom', ['replaceImage']],
+                        ['resize', ['resizeFull', 'resizeHalf', 'resizeQuarter']],
+                        ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                        ['remove', ['removeMedia']]
+                    ]
+                },
+
+                buttons: {
+                    replaceImage: function (context) {
+                        const ui = $.summernote.ui;
+
+                        // Create the button
+                        const button = ui.button({
+                            contents: '<i class="note-icon-picture"></i> Replace',
+                            tooltip: 'Replace Image',
+                            click: function () {
+                                // Use context.invoke to get current image
+                                const $img = $(context.invoke('restoreTarget'));
+
+                                if (!$img || $img.length === 0) {
+                                    alert("No image selected");
+                                    return;
+                                }
+
+                                const fileInput = $('<input type="file" accept="image/*" style="display:none">');
+                                $('body').append(fileInput);
+
+                                fileInput.on('change', function () {
+                                    const file = this.files[0];
+                                    if (file) {
+                                        const reader = new FileReader();
+                                        reader.onload = function (e) {
+                                            const newImg = $('<img>')
+                                                .attr('src', e.target.result)
+                                                .attr('style', $img.attr('style'))
+                                                .attr('class', $img.attr('class'));
+
+                                            $img.replaceWith(newImg);
+                                        };
+                                        reader.readAsDataURL(file);
+                                    }
+                                    fileInput.remove();
+                                });
+
+                                fileInput.click();
+                            }
+                        });
+
+                        return button.render();
+                    }
+                }
             });
-         
         }, 300);
     });
+</script>
+
+<script>
+    // $(document).ready(function () {
+    //     setTimeout(() => {
+    //         $('#UpdateWeDoContent').summernote({
+    //             placeholder: 'Enter We Do Content *',
+    //             height: 300
+    //         });
+         
+    //     }, 300);
+    // });
+
 
     function updatePreview(input, imageUrl = null) {
         const oldImg = document.getElementById('oldImg');
