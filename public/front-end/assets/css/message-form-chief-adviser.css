@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* ====================
+  Reset Default CSS Start
+  ==================== */
+:root {
+  --primary-font: "Outfit";
+  --secondary-font: "Roboto";
+  --primary-color: #3e7b27;
+  --secondary-color: #85a947;
+  --gradient: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 0.1) 0%,
+    #cfcfcf 100%
+  );
+  --facebook-icon-bg-color: #3b5899;
+  --twitter-icon-bg-color: #000000;
+  --instagram-icon-bg-color: #ff00aa;
+  --linkedin-icon-bg-color: #0077b4;
+  --youtube-icon-bg-color: #ce201e;
+  --blue-color: #00b3fe;
+  --green-color-1: #e8ffe0;
+  --green-color: #0ccd26;
+  --border-color: #333;
+  --one-section-bg: #d4d4d4;
+  --one-bg-1: #f8f9fa;
+  --from-text: #bbb;
+  --white: #ffffff;
+  --black: #000000;
+  --red-color: #fe0000;
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --heading-top-bottom: linear-gradient(90deg, #ffa500, #ff6f00);
+  --card-box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.03),
+    0px -6px 15px rgba(0, 0, 0, 0.03), 6px 0px 15px rgba(0, 0, 0, 0.03),
+    -6px 0px 15px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+p {
+  font-family: var(--secondary-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font);
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+body {
+  background: var(--white);
+}
+
+/*====================
+  Reset Default CSS End
+  ====================*/
+
+/* Message From Chairman Hero Section Start */
+#message_chairman_hero_section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url("../img/home/hero-img-1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#message_chairman_hero_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 87, 28, 0.5);
+  z-index: 1;
+}
+
+.message_chairman_hero_content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+}
+
+.message_chairman_hero_content h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Message From Chairman Hero Section End */
+
+/* Message From Chairman Section Start */
+
+#message_from_chairman {
+  margin: 40px 0px;
+}
+
+#message_from_chairman .message_from_chairman_items {
+  width: 100%;
+  height: 100%;
+}
+
+#message_from_chairman
+  .message_from_chairman_items
+  .chairman_all_info
+  .message_from_chairman_img_description {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 1px solid var(--black);
+  box-shadow: 0 10px 10px -5px;
+  border: none;
+  border-radius: 0 0 8px 8px;
+}
+
+#message_from_chairman
+  .message_from_chairman_items
+  .chairman_all_info
+  .message_from_chairman_img_description
+  .title_name {
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--primary-font);
+}
+
+#message_from_chairman
+  .message_from_chairman_items
+  .chairman_all_info
+  .message_from_chairman_img_description
+  span {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: var(--primary-font);
+}
+
+#message_from_chairman .message_from_chairman_items .message_from_chairman_img {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 16 / 15;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 0px 10px -5px;
+}
+
+#message_from_chairman
+  .message_from_chairman_items
+  .message_from_chairman_img
+  img {
+  width: 100%;
+  height: 100%;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+}
+
+#message_from_chairman
+  .message_from_chairman_contant
+  .message_from_chairman_title {
+  font-family: var(--primary-font);
+  font-size: 42px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+#message_from_chairman
+  .message_from_chairman_contant
+  .message_from_chairman_description {
+  padding-top: 15px;
+  margin: 0;
+  text-align: justify;
+  font-family: var(--secondary-font);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+#message_from_chairman .message_from_chairman_bio p {
+  padding-top: 15px;
+  text-align: justify;
+  font-family: var(--secondary-font);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+@media screen and (max-width: 992px) {
+  #message_from_chairman .message_from_chairman_items .chairman_all_info {
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+/* Message From Chairman Section End */

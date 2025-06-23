@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* ====================
+  Reset Default CSS Start
+  ==================== */
+:root {
+  --primary-font: "Outfit";
+  --secondary-font: "Roboto";
+  --primary-color: #3e7b27;
+  --secondary-color: #85a947;
+  --gradient: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 0.1) 0%,
+    #cfcfcf 100%
+  );
+  --facebook-icon-bg-color: #3b5899;
+  --twitter-icon-bg-color: #000000;
+  --instagram-icon-bg-color: #ff00aa;
+  --linkedin-icon-bg-color: #0077b4;
+  --youtube-icon-bg-color: #ce201e;
+  --blue-color: #00b3fe;
+  --green-color-1: #e8ffe0;
+  --green-color: #0ccd26;
+  --border-color: #333;
+  --one-section-bg: #d4d4d4;
+  --one-bg-1: #f8f9fa;
+  --from-text: #bbb;
+  --white: #ffffff;
+  --black: #000000;
+  --red-color: #fe0000;
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --heading-top-bottom: linear-gradient(90deg, #ffa500, #ff6f00);
+  --card-box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.03),
+    0px -6px 15px rgba(0, 0, 0, 0.03), 6px 0px 15px rgba(0, 0, 0, 0.03),
+    -6px 0px 15px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+p {
+  font-family: var(--secondary-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font);
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+body {
+  background: var(--white);
+}
+
+/*====================
+  Reset Default CSS End
+  ====================*/
+
+/* About Hero Section Start */
+#about_hero_section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-image: url("../img/home/page-hero-img.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#about_hero_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 87, 28, 0.5);
+  z-index: 1;
+}
+
+.about_hero_content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+}
+
+.about_hero_content h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.about_hero_btn {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.about_hero_btn a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--white);
+}
+
+.about_hero_btn a:first-child {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.about_hero_btn a:first-child:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.about_hero_btn a:last-child {
+  background-color: transparent;
+  color: var(--white);
+}
+
+.about_hero_btn a:last-child:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+/* About Hero Section End */
+
+/* Our Programs Section Start */
+#our_programs {
+  margin: 40px 0px;
+}
+
+#our_programs .our_programs_item .programs_heading {
+  padding-bottom: 20px;
+  font-size: 46px;
+  font-weight: bold;
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+}
+
+#our_programs .our_programs_items .our_programs_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+#our_programs
+  .our_programs_items
+  .our_programs_grid
+  .our_programs_category_item {
+  padding: 10px;
+}
+
+#our_programs
+  .our_programs_items
+  .our_programs_grid
+  .our_programs_category_item
+  .our_programs_category
+  img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#our_programs .our_programs_items .our_programs_details {
+  padding: 20px 0px;
+}
+
+#our_programs
+  .our_programs_items
+  .our_programs_details
+  .our_programs_description
+  .our_programs_title {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: var(--primary-font);
+  padding: 10px 0px;
+}
+
+#our_programs
+  .our_programs_items
+  .our_programs_details
+  .our_programs_description
+  .programs_short_text {
+  text-align: justify;
+  font-size: 16px;
+  font-family: var(--secondary-font);
+  color: var(--black);
+}
+
+@media (max-width: 992px) {
+  .our_programs_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .our_programs_grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Our Programs Section End */

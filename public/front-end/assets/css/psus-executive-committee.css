@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* ====================
+  Reset Default CSS Start
+  ==================== */
+:root {
+  --primary-font: "Outfit";
+  --secondary-font: "Roboto";
+  --primary-color: #3e7b27;
+  --secondary-color: #85a947;
+  --gradient: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 0.1) 0%,
+    #cfcfcf 100%
+  );
+  --facebook-icon-bg-color: #3b5899;
+  --twitter-icon-bg-color: #000000;
+  --instagram-icon-bg-color: #ff00aa;
+  --linkedin-icon-bg-color: #0077b4;
+  --youtube-icon-bg-color: #ce201e;
+  --blue-color: #00b3fe;
+  --green-color-1: #e8ffe0;
+  --green-color: #0ccd26;
+  --border-color: #333;
+  --one-section-bg: #d4d4d4;
+  --one-bg-1: #f8f9fa;
+  --from-text: #bbb;
+  --white: #ffffff;
+  --black: #000000;
+  --red-color: #fe0000;
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --heading-top-bottom: linear-gradient(90deg, #ffa500, #ff6f00);
+  --card-box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.03),
+    0px -6px 15px rgba(0, 0, 0, 0.03), 6px 0px 15px rgba(0, 0, 0, 0.03),
+    -6px 0px 15px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+p {
+  font-family: var(--secondary-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font);
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+body {
+  background: var(--white);
+}
+
+/*====================
+  Reset Default CSS End
+  ====================*/
+
+/* Message From Chairman Hero Section Start */
+#message_chairman_hero_section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url("../img/home/hero-img-1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#message_chairman_hero_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 87, 28, 0.5);
+  z-index: 1;
+}
+
+.message_chairman_hero_content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+}
+
+.message_chairman_hero_content h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Message From Chairman Hero Section End */
+
+/* PSUS Executive Committee Section Start */
+
+#psus_executive_committee {
+  margin: 50px 0px;
+}
+
+.psus_executive_committee_table {
+  border-radius: 12px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.psus_executive_committee_title {
+  font-size: 44px;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px var(--shadow-color);
+}
+
+.committee_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: var(--secondary-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px var(--shadow-color);
+  margin-top: 20px;
+}
+
+.committee_cell_heading,
+.committee_cell {
+  padding: 15px 20px;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.committee_cell_heading {
+  background: var(--primary-color);
+  color: var(--white);
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.committee_cell {
+  font-size: 18px;
+  color: var(--black);
+  background: var(--white);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.committee_table tr:last-child td {
+  border: none;
+}
+
+.committee_table tr:hover td:not(.committee_cell_heading) {
+  background: var(--secondary-color);
+  color: var(--white);
+}
+
+.committee_table tr:hover .committee_cell_heading {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+@media screen and (max-width: 992px) {
+  .committee_table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .committee_cell_heading,
+  .committee_cell {
+    font-size: 18px;
+    padding: 12px 15px;
+  }
+
+  .psus_executive_committee_title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .committee_cell_heading,
+  .committee_cell {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .psus_executive_committee_title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .committee_cell_heading,
+  .committee_cell {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .psus_executive_committee_title {
+    font-size: 20px;
+  }
+}
+/* PSUS Executive Committee Section End */
