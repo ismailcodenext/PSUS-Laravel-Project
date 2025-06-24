@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\WeDoController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\EventinfoController;
@@ -143,6 +144,10 @@ Route::post("/success-stories-update", [SuccessStoriesController::class, 'Succes
 Route::post("/delete-success-stories", [SuccessStoriesController::class, 'SuccessStoriesDelete'])->middleware('auth:sanctum');
 
 // Success Stories Api Route End
+
+
+// Contact Api Route Start
+Route::get("/contact-info-list", [ContactController::class, 'ContactInfoList'])->middleware('auth:sanctum');
 
 
 // Dashboard All API Route End

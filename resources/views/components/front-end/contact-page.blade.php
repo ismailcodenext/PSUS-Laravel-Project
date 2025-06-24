@@ -30,28 +30,34 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
+                      @if(session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
                     <div class="contact_section_items">
                         <div class="contact_section_form_item">
                             <h2 class="contact_section_form_heading">WELCOME TO PSUS FORM</h2>
-                            <form>
+                          
+                            <form action="{{ route('contact.send') }}" method="POST">
+                                @csrf
                                 <div class="contact_section_form_grid">
                                     <div class="contact_section_form_row_category">
-                                        <input type="text" placeholder="First" required>
-                                        <input type="text" placeholder="Last" required>
+                                        <input type="text" name="first_name" placeholder="First" required>
+                                        <input type="text" name="last_name" placeholder="Last">
                                     </div>
                                     <div class="contact_section_form_row_category">
-                                        <input type="email" placeholder="Email" required>
-                                        <input type="number" placeholder="Phone" required>
+                                        <input type="email" name="email" placeholder="Email">
+                                        <input type="number" name="mobile" placeholder="Phone" required>
                                     </div>
                                     <div class="contact_section_form_row_category">
-                                        <input type="text" placeholder="City" required>
-                                        <input type="text" placeholder="Region" required>
+                                        <input type="text" name="city" placeholder="City">
+                                        <input type="text" name="region" placeholder="Region">
                                     </div>
                                     <textarea class="contact_section_form_textarea"
-                                        placeholder="Enter your message here..." required></textarea>
+                                        name="description" placeholder="Enter your message here..."></textarea>
                                 </div>
                                 <div class="contact_us_submit_btn">
-                                    <a href="">Submit</a>
+                                    <button type="submit">Submit</button>
                                 </div>
                             </form>
                         </div>

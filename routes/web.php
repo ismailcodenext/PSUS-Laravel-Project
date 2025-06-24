@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeDoController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsEventController;
 use App\Http\Controllers\WhatWeDoPageController;
 use App\Http\Controllers\SuccessStoriesController;
@@ -38,7 +39,8 @@ Route::view('/admin-dashboard-we-do-menu-page', 'pages.back-end-page.we-do-menu-
 Route::view('/admin-dashboard-event-info-page', 'pages.back-end-page.event-info-page');
 Route::view('/admin-dashboard-message-page', 'pages.back-end-page.message-page');
 Route::view('/admin-dashboard-company-info-page', 'pages.back-end-page.company-info-page');
-Route::view('/admin-dashboard-program-category-page', 'pages.back-end-page.program-category-page');
+Route::view('/admin-dashboard-company-info-page', 'pages.back-end-page.company-info-page');
+Route::view('/admin-dashboard-contact-info-page', 'pages.back-end-page.contact-info-page');
 Route::view('/admin-dashboard-program-page', 'pages.back-end-page.program-page');
 Route::view('/admin-dashboard-menu-page', 'pages.back-end-page.nevbar-menu-page');
 Route::view('/admin-dashboard', 'components.back-end.dashboardsummery');
@@ -83,5 +85,6 @@ Route::get('/single-news-events/{id}', [NewsEventController::class, 'SingleNewsE
 Route::get('/single-we-do/{id}', [WeDoController::class, 'SingleWeDoDataShow'])->name('we.do.show');
 Route::get('/single-we-do-page/{id}', [WhatWeDoPageController::class, 'SingleWhatWeDoPageDataShow'])->name('we.do.show');
 Route::get('/success-stories/{id}', [SuccessStoriesController::class, 'SingleNewsEventDataShow'])->name('blog.show');
+Route::post('/contact-us', [ContactController::class, 'ContactPageData'])->name('contact.send');
 
 // Front-End All Route End 
