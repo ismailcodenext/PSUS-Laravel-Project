@@ -44,17 +44,14 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="about_image">
-                        <img src="{{asset('front-end/assets/img/home/about-us-img-1.jpg')}}" alt="">
+                        <img src="{{ asset($HomeAboutData->img_url) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="about_info">
                         <h2 class="about_info_heading">About Us</h2>
-                        <p class="about_info_description">PSUS is a non-profit, non-governmental organization
-                            founded in 2004 to improve the lives of underprivileged communities in Bangladesh. We
-                            focus on empowering marginalized groups, especially women and children, through
-                            initiatives in health, education, and income generation</p>
-                        <a href="" class="about_info_read_more">Read More <span>→</span></a>
+                        <p class="about_info_description">{{ $HomeAboutData->title_1_desc }}</p>
+                        <!-- <a href="" class="about_info_read_more">Read More <span>→</span></a> -->
                     </div>
                 </div>
             </div>
@@ -64,7 +61,7 @@
 <!-- About Us Section End -->
 
 <!-- About Us Mission & Vision and CORE VALUES Start -->
-<section id="mission_vision_core_items">
+<!-- <section id="mission_vision_core_items">
     <div class="container">
         <div class="mission_vision_core_item">
             <h2 class="mission_vision_core_heading">Empowering Your Success,</h2>
@@ -131,64 +128,14 @@
         </div>
     </div>
 </section>
-<!-- About Us Mission & Vision and CORE VALUES End -->
+About Us Mission & Vision and CORE VALUES End -->
 
-<!-- Subscription Start -->
-<div id="subscription_items" style="background:#85a947;">
-    <div class="container">
-        <div class="subscription_bar_item">
-            <div class="subscription_bar">
-                <div class="subscription_bar_img">
-                    <a href="{{url('/home')}}"><img src="{{asset('front-end/assets/img/footer-logo.png')}}" alt=""></a>
-                </div>
-                <div class="input_container">
-                    <input type="email" placeholder="psus.pabna@yahoo.com" id="email" class="professional_input">
-                    <a onclick="subscribe()" class="professional_button" href="">Subscribe</a>
-                </div>
-                <div class="social_wrapper">
-                    <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook facebook_icon"></i></a>
-                        <a href=""><i class="fa-brands fa-square-x-twitter twitter_icon"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram instagram_icon"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin linkedin_icon"></i></a>
-                        <a href=""><i class="fa-brands fa-youtube youtube_icon"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscription_under_line">
-    </div>
+
+<div class="container">
+    {!! $HomeAboutData->long_content !!}
+
 </div>
-<!-- Duplicate Section Start -->
-<div id="subscription_items_1" style="background: #85a947;">
-    <div class="container">
-        <div class="subscription_bar_item_1">
-            <div class="subscription_bar_1">
-                <div class="subscription_bar_img_1">
-                    <img src="./assets/img/footer-logo.png" alt="">
-                </div>
-                <div class="input_container_1">
-                    <input type="email" placeholder="psus.pabna@yahoo.com" id="email" class="professional_input_1">
-                    <a onclick="subscribe()" class="professional_button_1" href="">Subscribe</a>
-                </div>
-                <div class="social_wrapper_1">
-                    <div class="social_1">
-                        <a href=""><i class="fa-brands fa-facebook facebook_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-square-x-twitter twitter_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram instagram_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin linkedin_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-youtube youtube_icon_1"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscription_under_line_1">
-    </div>
-</div>
-<!-- Duplicate Section End -->
-<!-- Subscription End -->
+
 
 @include('components.front-end.compnents.footer')
 

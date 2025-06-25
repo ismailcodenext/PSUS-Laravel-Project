@@ -1,3 +1,10 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet" />
+<style>
+    .financemodal .modal-content {
+        width: 60% !important;
+        height: auto;
+    }
+</style>
 <div class="main-content" id="myModal">
     <div class="page-content">
           <!-- Create Product Modal Start -->
@@ -40,11 +47,12 @@
                                 </div>
                             <div class="col">
                             <div class="form-row">
-                                <input type="text" placeholder="Home About Title *" id="HomeAboutTitle_2" required />
+                                    <textarea name="address_details" id="HomeAboutShortContent" cols="30" rows="10"
+                                        placeholder="Enter About Short Content *"></textarea>
                             </div>
                                 <div class="form-row">
-                                    <textarea name="address_details" id="HomeAboutDescription_2" cols="30" rows="10"
-                                        placeholder="Enter About Description *"></textarea>
+                                    <textarea name="address_details" id="HomeAboutLongContent" cols="30" rows="10"
+                                        placeholder="Enter About Long Content *"></textarea>
                                 </div>
 
                             </div>
@@ -62,14 +70,37 @@
 </div>
 
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Summernote JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Summernote Init after page load -->
+<script>
+  $(document).ready(function () {
+    setTimeout(() => {
+      $('#HomeAboutShortContent').summernote({
+        placeholder: 'Enter Home About Short Content *',
+        height: 300
+      });
+      $('#HomeAboutLongContent').summernote({
+        placeholder: 'Enter Home About Long Content *',
+        height: 300
+      });
+    }, 300); // give time for modal to fully render if dynamically shown
+  });
+</script>
+
 <script>
     async function Save(event) {
 
     try {
         let HomeAboutTitle_1 = document.getElementById('HomeAboutTitle_1').value;
         let HomeAboutDescription_1 = document.getElementById('HomeAboutDescription_1').value;
-        let HomeAboutTitle_2 = document.getElementById('HomeAboutTitle_2').value;
-        let HomeAboutDescription_2 = document.getElementById('HomeAboutDescription_2').value;
+      let HomeAboutShortContent = $('#HomeAboutShortContent').summernote('code');
+      let HomeAboutLongContent = $('#HomeAboutLongContent').summernote('code');
 
         let imgInput = document.getElementById('HomeAboutImg');
         let imgFile = imgInput.files[0];
@@ -81,20 +112,14 @@
         } else if (HomeAboutDescription_1.length === 0) {
             errorToast("About Description Required !");
             return;
-        }else if (HomeAboutTitle_2.length === 0) {
-            errorToast("About Title Required !");
-            return;
-        }else if (HomeAboutDescription_2.length === 0) {
-            errorToast("About Description Required !");
-            return;
         }
         else {
             // Creating form data for submission
             let formData = new FormData();
             formData.append('title_1', HomeAboutTitle_1);
             formData.append('title_1_desc', HomeAboutDescription_1);
-            formData.append('title_2', HomeAboutTitle_2);
-            formData.append('title_2_desc', HomeAboutDescription_2);
+            formData.append('short_content', HomeAboutShortContent);
+            formData.append('long_content', HomeAboutLongContent);
             formData.append('img_url', imgFile); // Append image file
 
             const config = {

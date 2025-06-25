@@ -4,7 +4,7 @@
         <!-- Table Start -->
         <div class="bredcam">
             <div class="bredcam-title">
-                <h1>Event Info List</h1>
+                <h1>News & Events List</h1>
             </div>
         </div>
         <div class="data-table">

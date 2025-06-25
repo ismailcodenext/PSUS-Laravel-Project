@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeDoController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\NewsEventController;
 use App\Http\Controllers\WhatWeDoPageController;
 use App\Http\Controllers\SuccessStoriesController;
@@ -84,6 +85,7 @@ Route::view('/organization', 'components.front-end.organization-page');
 Route::get('/single-news-events/{id}', [NewsEventController::class, 'SingleNewsEventDataShow'])->name('blog.show');
 Route::get('/single-we-do/{id}', [WeDoController::class, 'SingleWeDoDataShow'])->name('we.do.show');
 Route::get('/single-we-do-page/{id}', [WhatWeDoPageController::class, 'SingleWhatWeDoPageDataShow'])->name('we.do.show');
+Route::get('/about-page/{id}', [HomeAboutController::class, 'SingleAboutPageDataShow'])->name('we.do.show');
 Route::get('/success-stories/{id}', [SuccessStoriesController::class, 'SingleNewsEventDataShow'])->name('blog.show');
 Route::post('/contact-us', [ContactController::class, 'ContactPageData'])->name('contact.send');
 

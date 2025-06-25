@@ -33,74 +33,9 @@
 <!-- About Start -->
 <section id="about">
     <div class="container">
-        <div class="about_wrapper">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about_left_side_item">
-                        <div class="about_img">
-                            <img src="" id="HomeAboutImage" alt="">
-                        </div>
-                        <div class="grid-container">
-                            <div class="grid-item">
-                                <div class="number" data-target="29">0</div>
-                                <div class="label">Years Experience</div>
-                            </div>
-                            <div class="grid-item">
-                                <div class="number" data-target="230">0</div>
-                                <div class="label">Project Challenge</div>
-                            </div>
-                            <div class="grid-item">
-                                <div class="number" data-target="830">0</div>
-                                <div class="label">Positive Reviews</div>
-                            </div>
-                            <div class="grid-item">
-                                <div class="number" data-target="100000">0</div>
-                                <div class="label">Trusted Students</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about_content">
-                        <h2 class="about_us_title">ABOUT US</h2>
-                        <h3 class="about_content_title" id="AboutHeadingData"></h3>
-                        <p class="about_content_description" id="AboutContentDescriptionData">
-
-                        </p>
-                        <div class="about_content_list">
-                            <h4 class="about_content_list_heading" id="AboutContentListHeading"></h4>
-                            <div class="about_content_list_item">
-                                <div class="list_icon">✔</div>
-                                <div class="list_text">Justice & Fairness</div>
-                            </div>
-                            <div class="about_content_list_item">
-                                <div class="list_icon">✔</div>
-                                <div class="list_text">Dignity and Values</div>
-                            </div>
-                            <div class="about_content_list_item">
-                                <div class="list_icon">✔</div>
-                                <div class="list_text">Compassion and Integrity</div>
-                            </div>
-                            <div class="about_content_list_item">
-                                <div class="list_icon">✔</div>
-                                <div class="list_text">Social Norms and Coherence</div>
-                            </div>
-                            <div class="about_content_list_item">
-                                <div class="list_icon">✔</div>
-                                <div class="list_text">Humanitarian Dignity</div>
-                            </div>
-                            <div class="about_content_list_item">
-                                <div class="list_icon">✔</div>
-                                <div class="list_text">Honesty and Justice</div>
-                            </div>
-                            <div class="about_content_list_btn">
-                                <a href="">learn more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="about_wrapper" id="AboutSectionData">
+          
+          
         </div>
     </div>
 </section>
@@ -246,7 +181,7 @@
 <div id="come_events_section">
     <div class="container">
         <div class="come_events_section_heading">
-            <h2><span> Come to our</span> events for more info</h2>
+            <h2><span> Come to our</span> News & Events</h2>
         </div>
 
         <div class="come_events_section_slider">
@@ -259,106 +194,11 @@
 </div>
 <!-- Come to Events End -->
 
-<!-- Subscription Start -->
-<div id="subscription_items" style="background:#85a947;">
-    <div class="container">
-        <div class="subscription_bar_item">
-            <div class="subscription_bar">
-                <div class="subscription_bar_img">
-                    <a href="{{url('/')}}"><img src="" alt="" id="footer_image"></a>
-                </div>
-                <div class="input_container">
-                    <input type="email" placeholder="psus.pabna@yahoo.com" id="email" class="professional_input">
-                    <a onclick="subscribe()" class="professional_button" href="">Subscribe</a>
-                </div>
-                <div class="social_wrapper">
-                    <div class="social">
-                        <a id="FacebookLink" href=""><i class="fa-brands fa-facebook facebook_icon"></i></a>
-                        <a id="TwitterLink" href=""><i class="fa-brands fa-square-x-twitter twitter_icon"></i></a>
-                        <a id="InstragramLink" href=""><i class="fa-brands fa-instagram instagram_icon"></i></a>
-                        <a id="LinkedinLink" href=""><i class="fa-brands fa-linkedin linkedin_icon"></i></a>
-                        <a id="YouTubeLink" href=""><i class="fa-brands fa-youtube youtube_icon"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscription_under_line">
-    </div>
-</div>
-<!-- Duplicate Section Start -->
-<div id="subscription_items_1" style="background: #85a947;">
-    <div class="container">
-        <div class="subscription_bar_item_1">
-            <div class="subscription_bar_1">
-                <div class="subscription_bar_img_1">
-                    <img src="{{asset("front-end/assets/img/footer-logo.png")}}" alt="">
-                </div>
-                <div class="input_container_1">
-                    <input type="email" placeholder="psus.pabna@yahoo.com" id="email" class="professional_input_1">
-                    <a onclick="subscribe()" class="professional_button_1" href="">Subscribe</a>
-                </div>
-                <div class="social_wrapper_1">
-                    <div class="social_1">
-                        <a href=""><i class="fa-brands fa-facebook facebook_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-square-x-twitter twitter_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram instagram_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin linkedin_icon_1"></i></a>
-                        <a href=""><i class="fa-brands fa-youtube youtube_icon_1"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscription_under_line_1">
-    </div>
-</div>
-<!-- Duplicate Section End -->
-<!-- Subscription End -->
 
 <!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<!-- <script>
-    $(document).ready(function() {
-        async function HomeSliderData() {
-            try {
-                let res = await axios.get("/api/hero-slider-data-show");
-                $("#HomeSliderFrontData").empty();
-
-                if (res.data['HeroSliderFrontData'].length === 0) {
-                    console.warn("No Home Slider Data found");
-                    return;
-                }
-
-                res.data['HeroSliderFrontData'].forEach((item) => {
-                    let EachItem = `
-           <div class="swiper-slide hero_slide" style="
-              background: linear-gradient(
-                  0deg,
-                  rgba(0, 0, 0, 0.4) 0%,
-                  rgba(0, 0, 0, 0.4) 100%
-                ),
-                url(${item['img_url']});
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            ">
-            </div>
-    
-    `;
-                    $("#HomeSliderFrontData").append(EachItem);
-                });
-            } catch (error) {
-                console.error("Error fetching Home Slider:", error);
-            }
-        }
-
-        // Fetch product categories on page load
-        HomeSliderData();
-    });
-</script> -->
 
 <script>
     $(document).ready(function () {
@@ -418,28 +258,80 @@
 </script>
 
 
-<!-- About section start  -->
+<!-- About Section Start -->
 
 <script>
-    async function AboutSectionData() {
-        try {
-            const response = await axios.get("/api/home-about-data");
-            const data = response.data.data;
-            document.getElementById('HomeAboutImage').src = data.img_url;
-            document.getElementById('AboutHeadingData').innerHTML = data.title_1;
-            document.getElementById('AboutContentDescriptionData').innerText = data.title_1_desc;
-            document.getElementById('AboutContentListHeading').innerText = data.title_2;
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }
+    $(document).ready(function() {
+        async function AboutSectionData() {
+            try {
+                let res = await axios.get("/api/home-about-data");
+                $("#AboutSectionData").empty();
 
-    // Call the function to fetch data when the page loads
-    AboutSectionData();
+                if (res.data['AboutSectionFrontData'].length === 0) {
+                    console.warn("No We Do Data found");
+                    return;
+                }
+
+                res.data['AboutSectionFrontData'].forEach((item) => {
+                    let EachItem = `
+      <div class="row">
+                <div class="col-lg-6">
+                    <div class="about_left_side_item">
+                        <div class="about_img">
+                            <img src="${item['img_url']}" alt="">
+                        </div>
+                        <div class="grid-container">
+                            <div class="grid-item">
+                                <div class="number" data-target="29">0</div>
+                                <div class="label">Years Experience</div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="number" data-target="230">0</div>
+                                <div class="label">Project Challenge</div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="number" data-target="830">0</div>
+                                <div class="label">Positive Reviews</div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="number" data-target="100000">0</div>
+                                <div class="label">Trusted Students</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about_content">
+                        <h2 class="about_us_title">ABOUT US</h2>
+                        <h3 class="about_content_title" id="AboutHeadingData">${item['title_1']}</h3>
+                        <p class="about_content_description" id="AboutContentDescriptionData">${item['title_1_desc']}</p>
+                        <div class="about_content_list">
+                           ${item['short_content']}
+                            <div class="about_content_list_btn">
+                                <a href="/about-page/${item['id']}">learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    `;
+                    $("#AboutSectionData").append(EachItem);
+                });
+            } catch (error) {
+                console.error("Error fetching Home Slider:", error);
+            }
+        }
+
+        // Fetch product categories on page load
+        AboutSectionData();
+    });
 </script>
 
 
-<!-- About section end  -->
+<!-- About Section End -->
+
 
 <!-- mission and vission section start  -->
 
@@ -516,41 +408,6 @@
 
 <!-- We Do Section End -->
 
-<!-- Event Section Start -->
-
-<!-- <script>
-    $(document).ready(function () {
-        async function EventSectionData() {
-            try {
-                let res = await axios.get("/api/event-info-data");
-                $("#EventSectionSlider").empty();
-
-                if (res.data['EventInfoData'].length === 0) {
-                    console.warn("No event Data found");
-                    return;
-                }
-
-                res.data['EventInfoData'].forEach((item) => {
-                    let EachItem = `
-      <div class="come_events_section_slider_card">
-                    <img src="${item['img_url']}" alt="">
-                    <h5 class="come_events_section_slider_heading">${item['title']}</h5>
-                    <p>${item['discription']}</p>
-                    <a href="" class="read_more">Read More</a>
-                </div>
-    `;
-                    $("#EventSectionSlider").append(EachItem);
-                });
-            } catch (error) {
-                console.error("Error fetching Home Slider:", error);
-            }
-        }
-
-        // Fetch product categories on page load
-        EventSectionData();
-    });
-    </script> -->
-
 
 <script>
     $(document).ready(function() {
@@ -617,31 +474,6 @@
 
 <!--Event Section End -->
 
-
-<!-- Company Info Fotter Start -->
-
-
-<script>
-    async function CompanyFotterInfoData() {
-        try {
-            const response = await axios.get("/api/company-info-Data");
-            const data = response.data.data;
-
-            document.getElementById('footer_image').src = data.img_url;
-            document.getElementById('FacebookLink').href = data.fb_link;
-            document.getElementById('TwitterLink').href = data.twitter_link;
-            document.getElementById('InstragramLink').href = data.insta_link;
-            document.getElementById('LinkedinLink').href = data.linkedin_link;
-            document.getElementById('YouTubeLink').href = data.youtube_link;
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }
-    // Fetch data when the page loads
-    CompanyFotterInfoData();
-</script>
-
-<!-- Company Info Fotter End -->
 
 @include('components.front-end.compnents.footer')
 

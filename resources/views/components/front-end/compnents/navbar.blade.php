@@ -8,26 +8,25 @@
         <div class="topbar_wrapper">
             <div class="location">
                 <i class="fa-solid fa-location-arrow"></i>
-                <p>Block-Kha, Road-04, Monsurabad R/A, Pabna-6600
-                </p>
+                <p id="NavbarTopAddress"></p>
             </div>
             <div class="contact">
                 <div class="time">
                     <i class="fa-solid fa-envelope-open-text"></i>
-                    <p>psus.pabna@yahoo.com</p>
+                    <p id="NavbarTopEmail"></p>
                 </div>
                 <div class="phone">
                     <i class="fa-solid fa-phone-volume"></i>
-                    <p>+ 88-01765712686</p>
+                    <p id="NavbarTopMobile"></p>
                 </div>
             </div>
             <div class="social_wrapper">
                 <div class="social">
-                    <a href=""><i class="fa-brands fa-facebook facebook_icon"></i></a>
-                    <a href=""><i class="fa-brands fa-square-x-twitter twitter_icon"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram instagram_icon"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin linkedin_icon"></i></a>
-                    <a href=""><i class="fa-brands fa-youtube youtube_icon"></i></a>
+                    <a id="FacebookLink" href=""><i class="fa-brands fa-facebook facebook_icon"></i></a>
+                    <a id="TwitterLink" href=""><i class="fa-brands fa-square-x-twitter twitter_icon"></i></a>
+                    <a id="InstragramLink" href=""><i class="fa-brands fa-instagram instagram_icon"></i></a>
+                    <a id="LinkedinLink" href=""><i class="fa-brands fa-linkedin linkedin_icon"></i></a>
+                    <a id="YouTubeLink" href=""><i class="fa-brands fa-youtube youtube_icon"></i></a>
                 </div>
             </div>
         </div>
@@ -46,7 +45,7 @@
                     <li class="menu-item">
                         <a class="sub-btn" href="">Who We Are<i class="fas fa-angle-down down"></i></a>
                         <ul class="sub-menu">
-                            <li class="sub-item"><a href="{{url('/about-us')}}">About Us</a></li>
+                            <!-- <li class="sub-item"><a href="{{url('/about-us')}}">About Us</a></li> -->
                             <li class="sub-item more">
                                 <a class="more-btn" href="">Messages <i class="fas fa-angle-right"></i></a>
                                 <ul class="more-menu">
@@ -59,28 +58,28 @@
                             </li>
                             <li class="sub-item"><a href="{{url('/executive-committee')}}">Executive Committee</a>
                             </li>
-                                 <li class="sub-item"><a href="{{url('/objectives')}}">Objectives</a></li>
-                                 <li class="sub-item"><a href="{{url('/network')}}">Network</a></li>
-                                 <li class="sub-item"><a href="{{url('/organization')}}">Organization</a></li>
+                            <li class="sub-item"><a href="{{url('/objectives')}}">Objectives</a></li>
+                            <li class="sub-item"><a href="{{url('/network')}}">Network</a></li>
+                            <li class="sub-item"><a href="{{url('/organization')}}">Organization</a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
                         <a class="sub-btn" href="./all-programs-page.html">What We Do
                             <i class="fas fa-angle-down down"></i></a>
                         <ul class="sub-menu" id="WeDoFornEndData">
-                            
-        
+
+
                         </ul>
                     </li>
-                           <li class="menu-item">
-                            <a class="sub-btn" href="{{url('/get-involved')}}">Get Involved
-                                <i class="fas fa-angle-down down"></i></a>
-                            <ul class="sub-menu">
-                                <li class="sub-item"><a href="{{url('/career')}}">Career</a>
-                                <li class="sub-item"><a href="{{url('/volunteer')}}">Volunteer</a>
-                                </li>
-                            </ul>
-                        </li>
+                    <li class="menu-item">
+                        <a class="sub-btn" href="{{url('/get-involved')}}">Get Involved
+                            <i class="fas fa-angle-down down"></i></a>
+                        <ul class="sub-menu">
+                            <li class="sub-item"><a href="{{url('/career')}}">Career</a>
+                            <li class="sub-item"><a href="{{url('/volunteer')}}">Volunteer</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="menu-item"><a href="{{url('/news-events')}}">News & Events</a></li>
                     <li class="menu-item"><a href="{{url('/publications')}}">Publications</a></li>
                     <li class="menu-item"><a href="{{url('/success-stories')}}">Success Stories</a></li>
@@ -132,4 +131,27 @@
         // Fetch product categories on page load
         WeDoFornEndData();
     });
+</script>
+
+<script>
+    async function CompanyNavbarInfoData() {
+        try {
+            const response = await axios.get("/api/company-info-Data");
+            const data = response.data.data;
+
+            document.getElementById('NavbarTopMobile').innerHTML = data.mobile;
+            document.getElementById('NavbarTopEmail').innerHTML = data.email;
+            document.getElementById('NavbarTopAddress').innerHTML = data.address;
+            document.getElementById('FacebookLink').href = data.fb_link;
+            document.getElementById('TwitterLink').href = data.twitter_link;
+            document.getElementById('InstragramLink').href = data.insta_link;
+            document.getElementById('LinkedinLink').href = data.linkedin_link;
+            document.getElementById('YouTubeLink').href = data.youtube_link;
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    // Fetch data when the page loads
+    CompanyNavbarInfoData();
 </script>

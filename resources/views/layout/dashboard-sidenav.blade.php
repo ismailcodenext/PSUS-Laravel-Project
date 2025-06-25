@@ -856,13 +856,13 @@
                     fill="#008AEE" />
                 </svg>
 
-                <span class="text">Event Info Page</span>
+                <span class="text">News & Events Page</span>
                 <i class="arrow fa-solid fa-angle-down"></i>
               </a>
               <ul class="sub-menu">
                 <li>
                   <a href="{{ url('admin-dashboard-event-info-page') }}">
-                    <span class="text">Event Info List</span>
+                    <span class="text">News & Events Info List</span>
                   </a>
                 </li>
             </ul>

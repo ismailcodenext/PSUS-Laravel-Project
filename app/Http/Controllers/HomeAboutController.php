@@ -11,10 +11,41 @@ use Illuminate\Support\Facades\Auth;
 class HomeAboutController
 {
 
-    public function HomeAboutData(){
-        $HomePageData = HomeAbout::first();
-        return ResponseHelper::Out('success',$HomePageData,200);
+    // public function HomeAboutData(){
+    //     $HomePageData = HomeAbout::first();
+    //     return ResponseHelper::Out('success',$HomePageData,200);
+    // }
+
+    public function HomeAboutData()
+    {
+        try {
+            $AboutSectionFrontData = HomeAbout::latest()->get();
+            return response()->json(['status' => 'success', 'AboutSectionFrontData' => $AboutSectionFrontData]);
+        } catch (Exception $e) {
+            return response()->json(['status' => 'fail', 'message' => $e->getMessage()]);
+        }
     }
+
+       public function SingleAboutPageDataShow($id, Request $request)
+    {
+        $HomeAboutData = HomeAbout::find($id);
+
+        if (!$HomeAboutData) {
+            abort(404, 'Home About Page not found');
+        }
+
+        $recentPosts = HomeAbout::where('id', '!=', $id)
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('components.front-end.about-page', [
+            'HomeAboutData' => $HomeAboutData,
+            'recentPosts' => $recentPosts
+        ]);
+    }
+
+
 
     public function HomeAboutList()
     {
@@ -48,8 +79,8 @@ class HomeAboutController
             $HomeAbout = HomeAbout::create([
                 'title_1' => $request->input('title_1'),
                 'title_1_desc' => $request->input('title_1_desc'),
-                'title_2' => $request->input('title_2'),
-                'title_2_desc' => $request->input('title_2_desc'),
+                'short_content' => $request->input('short_content'),
+                'long_content' => $request->input('long_content'),
                 'img_url' => $img_url,
                 'user_id' => $user_id,
             ]);
@@ -93,8 +124,8 @@ class HomeAboutController
             // Update the cast information
             $HomeAboutData_Update->title_1 = $request->input('title_1');
             $HomeAboutData_Update->title_1_desc = $request->input('title_1_desc');
-            $HomeAboutData_Update->title_2 = $request->input('title_2');
-            $HomeAboutData_Update->title_2_desc = $request->input('title_2_desc');
+            $HomeAboutData_Update->short_content = $request->input('short_content');
+            $HomeAboutData_Update->long_content = $request->input('long_content');
 
 
 

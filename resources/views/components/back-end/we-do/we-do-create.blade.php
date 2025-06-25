@@ -39,8 +39,6 @@
                                         <textarea name="address_details" id="WeDoDescription" cols="30" rows="10"
                                             placeholder="Enter We Do Description *"></textarea>
                                     </div>
-
-                                              
                                 </div>
                                 <div class="form-row">
                                     <label class="country">

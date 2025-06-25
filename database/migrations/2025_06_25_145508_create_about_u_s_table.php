@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('home_abouts', function (Blueprint $table) {
+        Schema::create('about_u_s', function (Blueprint $table) {
             $table->id();
-            $table->string('title_1')->nullable();
-            $table->string('img_url');
-            $table->longText('title_1_desc')->nullable();
+            $table->string('img_url')->nullable();
+            $table->string('short_title')->nullable();
+            $table->longText('description')->nullable();
             $table->longText('short_content')->nullable();
             $table->longText('long_content')->nullable();
+            $table->string('status')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()->restrictOnDelete();
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('home_abouts');
+        Schema::dropIfExists('about_u_s');
     }
 };

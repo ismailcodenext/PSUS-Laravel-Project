@@ -6,7 +6,7 @@
                 <a class="close-btn closes">
                     <i class="fa-solid fa-xmark"></i>
                 </a>
-                <h2 class="heading">Add New Event Info</h2>
+                <h2 class="heading">Add New News & Events</h2>
                 <div id="popup-modal">
                     <form id="signup" onsubmit="return Save(event)">
                         <div class="row">

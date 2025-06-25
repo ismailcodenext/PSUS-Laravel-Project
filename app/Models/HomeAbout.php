@@ -13,8 +13,8 @@ class HomeAbout extends Model
         'img_url',
         'title_1',
         'title_1_desc',
-        'title_2',
-        'title_2_desc',
+        'short_content', // Summernote content for quick reading
+        'long_content', // Summernote content for detailed reading
         'user_id'
 ];
 }
