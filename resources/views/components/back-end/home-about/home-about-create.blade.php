@@ -1,7 +1,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet" />
 <style>
     .financemodal .modal-content {
-        width: 60% !important;
+        width: 50% !important;
         height: auto;
     }
 </style>
@@ -83,11 +83,11 @@
     setTimeout(() => {
       $('#HomeAboutShortContent').summernote({
         placeholder: 'Enter Home About Short Content *',
-        height: 300
+        height: 100
       });
       $('#HomeAboutLongContent').summernote({
         placeholder: 'Enter Home About Long Content *',
-        height: 300
+        height: 100
       });
     }, 300); // give time for modal to fully render if dynamically shown
   });

@@ -176,10 +176,8 @@
                                 <th>SL No:</th>
                                 <th>Action</th>
                                 <th>Image</th>
-                                <th>Title_1</th>
-                                <th>Title_1_desc</th>
-                                <th>Title_2</th>
-                                <th>Title_2_desc</th>
+                                <th>Title</th>
+                                <th>Title Description</th>
 
                             </tr>
                             </thead>
@@ -263,8 +261,6 @@
 
                             <td>${item['title_1']}</td>
                             <td>${item['title_1_desc']}</td>
-                            <td>${item['title_2']}</td>
-                            <td>${item['title_2_desc']}</td>
 
                         </tr>`;
                 tableList.append(row);
