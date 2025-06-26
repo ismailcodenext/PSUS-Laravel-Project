@@ -26,25 +26,13 @@
         <div class="news_events_wrapper">
             <!-- Left Section -->
             <div class="news_events_feature_image">
-                <img src="{{ asset($NewsEventData->banner_image) }}" alt="Banner Image">
-                <h2 class="news_events_feature_heading">{{ $NewsEventData->event_heading }}</h2>
+                <img src="{{ asset($NewsEventData->img_url) }}" alt="Banner Image">
+                <h2 class="news_events_feature_heading">{{ $NewsEventData->title }}</h2>
                 <p class="news_events_feature_description">
-                    {!! nl2br(e($NewsEventData->event_description)) !!}
+                    {!! nl2br(e($NewsEventData->discription)) !!}
                 </p>
 
-                @if($NewsEventData->img_url && is_array(json_decode($NewsEventData->img_url, true)))
-                    <div class="relavent_images">
-                        <div class="relavent_image">
-                            <div class="row">
-                                @foreach(json_decode($NewsEventData->img_url, true) as $img)
-                                    <div class="col-md-6 mb-3">
-                                        <img src="{{ asset($img) }}" alt="Related Image" class="img-fluid">
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                @endif
+             
             </div>
 
             <!-- Right Section -->
@@ -54,8 +42,8 @@
                 @foreach($recentPosts as $post)
                     <a href="{{ url('/single-news-events/' . $post->id) }}" class="news_events_link">
                         <div class="news_events_item">
-                            <img class="news_events_thumb" src="{{ asset($post->banner_image) }}" alt="News Thumb">
-                            <div class="news_events_text">{{ $post->event_heading }}</div>
+                            <img class="news_events_thumb" src="{{ asset($post->img_url) }}" alt="News Thumb">
+                            <div class="news_events_text">{{ $post->title }}</div>
                         </div>
                     </a>
                 @endforeach

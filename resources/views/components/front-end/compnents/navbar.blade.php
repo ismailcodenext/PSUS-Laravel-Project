@@ -45,7 +45,9 @@
                     <li class="menu-item">
                         <a class="sub-btn" href="">Who We Are<i class="fas fa-angle-down down"></i></a>
                         <ul class="sub-menu">
-                            <!-- <li class="sub-item"><a href="{{url('/about-us')}}">About Us</a></li> -->
+                            <li class="sub-item" id="NavbarAboutData">
+                                
+                            </li>
                             <li class="sub-item more">
                                 <a class="more-btn" href="">Messages <i class="fas fa-angle-right"></i></a>
                                 <ul class="more-menu">
@@ -103,6 +105,44 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+<!-- About Navbar Data Fetching Start  -->
+
+
+<script>
+    $(document).ready(function() {
+        async function NavbarAboutData() {
+            try {
+                let res = await axios.get("/api/home-about-data");
+                $("#NavbarAboutData").empty();
+
+                if (res.data['AboutSectionFrontData'].length === 0) {
+                    console.warn("No We Do Data found");
+                    return;
+                }
+
+                res.data['AboutSectionFrontData'].forEach((item) => {
+                    let EachItem = `
+     
+            <a href="/about-page/${item['id']}">About Us</a>
+    
+    `;
+                    $("#NavbarAboutData").append(EachItem);
+                });
+            } catch (error) {
+                console.error("Error fetching Home Slider:", error);
+            }
+        }
+
+        // Fetch product categories on page load
+        NavbarAboutData();
+    });
+</script>
+
+
+<!-- About Navbar Data Fetching End  -->
+
 
 <script>
     $(document).ready(function() {

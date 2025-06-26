@@ -20,6 +20,27 @@ class EventinfoController
         }
     }
 
+    
+  public function SingleNewsEventDataShow($id, Request $request)
+{
+    $NewsEventData = EventInfo::find($id);
+
+    if (!$NewsEventData) {
+        abort(404, 'News Event not found');
+    }
+
+    $recentPosts = EventInfo::where('id', '!=', $id)
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
+
+    return view('components.front-end.news-event-single-page', [
+        'NewsEventData' => $NewsEventData,
+        'recentPosts' => $recentPosts
+    ]);
+}
+
+
     public function EventInfoList()
     {
         try {

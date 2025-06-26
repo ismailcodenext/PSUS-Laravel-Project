@@ -861,7 +861,7 @@
               </a>
               <ul class="sub-menu">
                 <li>
-                  <a href="{{ url('admin-dashboard-event-info-page') }}">
+                  <a href="{{ url('admin-dashboard-news-event-page') }}">
                     <span class="text">News & Events Info List</span>
                   </a>
                 </li>

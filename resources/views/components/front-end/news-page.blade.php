@@ -36,23 +36,23 @@
     $(document).ready(function() {
         async function NewsEventFrontData() {
             try {
-                let res = await axios.get("/api/news-event-front-end-data");
+                let res = await axios.get("/api/event-info-data");
                 $("#NewsEventFrontData").empty();
 
-                if (res.data['NewsEventFrontData'].length === 0) {
+                if (res.data['EventInfoData'].length === 0) {
                     console.warn("No News Event Data found");
                     return;
                 }
-                res.data['NewsEventFrontData'].forEach((item) => {
+                res.data['EventInfoData'].forEach((item) => {
                     let EachItem = `
                                         <div class="news_events_card">
                 <div class="news_events_image_wrapper">
-                    <img src="${item['banner_image']}" alt="Event Image">
+                    <img src="${item['img_url']}" alt="Event Image">
                 </div>
                 <div class="news_events_content">
-                    <h2 class="news_events_title">${item['event_heading']}</h2>
-                    <p class="news_events_description">
-                        ${item['event_description']}
+                    <h2 class="news_events_title">${item['title']}</h2>
+                    <p class="news_events_description text-center">
+                        ${item['discription']}
                     </p>
                     <div class="news_events_button">
                         <a href="single-news-events/${item['id']}">Read More</a>

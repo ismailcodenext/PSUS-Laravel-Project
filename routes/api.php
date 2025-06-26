@@ -125,6 +125,7 @@ Route::post("/delete-menu", [MenuController::class, 'MenuDelete'])->middleware('
 
 // News Event Api Route Start
 
+
 Route::get("/news-event-front-end-data", [NewsEventController::class, 'NewsEventFrontEndData']);
 Route::get("/news-event-list", [NewsEventController::class, 'NewsEventList'])->middleware('auth:sanctum');
 Route::post("/news-event-create", [NewsEventController::class, 'NewsEventCreate'])->middleware('auth:sanctum');

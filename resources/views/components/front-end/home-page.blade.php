@@ -429,7 +429,7 @@
                             <img src="${item['img_url']}" alt="">
                             <h5 class="come_events_section_slider_heading">${item['title']}</h5>
                             <p>${item['discription']}</p>
-                            <a href="" class="read_more">Read More</a>
+                            <a href="single-news-events/${item['id']}" class="read_more">Read More</a>
                         </div>
                     `;
                     $slider.append(EachItem);
